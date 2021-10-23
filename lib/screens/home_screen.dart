@@ -16,11 +16,16 @@ class HomeScreen extends StatelessWidget {
           ),
         ]
       ),
-      body: Column(
-        children: [
-          //LISTADO HORIZONTAL DE PELÍCULAS
-          CardSwiper()
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            // Tarjetas principales
+            CardSwiper(),
+
+            // Movie Slider
+            MovieSlider(),
+          ],
+        ),
       ),
     );
   }
