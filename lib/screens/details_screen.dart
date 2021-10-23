@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peliculas_app/widgets/casting_cards.dart';
 class DetailsScreen extends StatelessWidget {
 
   @override
@@ -13,7 +14,11 @@ class DetailsScreen extends StatelessWidget {
           _CustomAppBar(),
           SliverList(
             delegate: SliverChildListDelegate([
-              _PosterAndTitle()
+              _PosterAndTitle(),
+              _Overview(),
+              _Overview(),
+              _Overview(),
+              CastingCards(),
             ]),
             
           )
@@ -37,6 +42,7 @@ class _CustomAppBar extends StatelessWidget {
         titlePadding: EdgeInsets.all(0),
         title: Container(
           width: double.infinity,
+          padding: EdgeInsets.only(bottom: 5),
           color: Colors.black12,
           alignment: Alignment.bottomCenter,
           child: Text(
@@ -94,3 +100,22 @@ class _PosterAndTitle extends StatelessWidget {
     );
   }
 }
+
+
+class _Overview extends StatelessWidget {
+  const _Overview({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+      child: Text(
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.',
+        textAlign: TextAlign.justify,
+        style: Theme.of(context).textTheme.subtitle1,
+      ),
+
+    );
+  }
+}
+
