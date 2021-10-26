@@ -52,6 +52,7 @@ class Movie {
 
   String? heroId;
 
+  //SE AGREGAN DE LAS LÍNEAS 55 A LA 61 (próximas 5 líneas) EN EL COMMIT DE MOSTRANDO IMÁGENES
   get fullPosterImg {
     if ( this.posterPath != null )
       return 'https://image.tmdb.org/t/p/w500${ this.posterPath }';
