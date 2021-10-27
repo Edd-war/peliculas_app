@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:peliculas_app/models/credits_response.dart';
 import 'package:peliculas_app/models/models.dart';
 
 class MoviesProvider extends ChangeNotifier{
@@ -12,6 +13,9 @@ class MoviesProvider extends ChangeNotifier{
 
   List<Movie> onDisplayMovies = [];
   List<Movie> popularMovies = [];
+
+  Map<int, List<Cast>> moviesCast={};
+
   int _popularPage = 0;
 
   MoviesProvider(){
@@ -63,5 +67,13 @@ class MoviesProvider extends ChangeNotifier{
     popularMovies = [...popularMovies, ...popularResponse.results];
     print(popularMovies[0]);
     notifyListeners();
+  }
+
+  Future<List<Cast>> getMovieCast(int movieId) async{
+    print('Pidiendo info al servidor de los actores');
+    final jsonData = await this._getJsonData('3/movie/$movieId/credits', _popularPage);
+    final creditsResponse = CreditsResponse.fromJson(jsonData);
+    moviesCast[movieId] = creditsResponse.cast;
+    return creditsResponse.cast;
   }
 }
