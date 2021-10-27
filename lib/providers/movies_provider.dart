@@ -39,8 +39,7 @@ class MoviesProvider extends ChangeNotifier{
     // });
     // // Await the http response, then decode the json-formatted response
     // final response = await http.get(url);
-    final jsonData = await this._getJsonData('9/movie/now_playing');
-    final nowPlayingResponse = NowPlayingResponse.fromJson(jsonData);
+    final nowPlayingResponse = NowPlayingResponse.fromJson(await this._getJsonData('3/movie/now_playing'));
     // final nowPlayingResponse = NowPlayingResponse.fromJson(response.body);
     // final Map<String, dynamic> decodeData = json.decode(response.body);
    // if (response.statusCode!=200) return ('ERROR');
@@ -59,7 +58,8 @@ class MoviesProvider extends ChangeNotifier{
     // });
     //
     // final response = await http.get(url);
-    final popularResponse = PopularResponse.fromJson(await _getJsonData('9/movie/popular', 1));
+    final jsonData = await this._getJsonData('3/movie/popular', _popularPage);
+    final popularResponse = PopularResponse.fromJson( jsonData);
     popularMovies = [...popularMovies, ...popularResponse.results];
     print(popularMovies[0]);
     notifyListeners();
