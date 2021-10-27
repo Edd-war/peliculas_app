@@ -60,6 +60,7 @@ class Movie {
     return 'https://i.stack.imgur.com/GNhxO.png';
   }
 
+  //SE AGREGAN DE LAS LÍNEAS 63 A LA 69 (PRÓXIMAS 7 LÍNEAS) EN EL COMMIT DE MovieDetails - Detalles de la película
   get fullBackdropPath {
     if ( this.backdropPath != null )
       return 'https://image.tmdb.org/t/p/w500${ this.backdropPath }';
