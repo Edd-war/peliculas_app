@@ -49,7 +49,7 @@ class Movie {
   double voteAverage;
   int voteCount;
 
-
+  //SE AGREGA LA SIGUIENTE LÍNEA EN EL COMMIT Hero Animation
   String? heroId;
 
   //SE AGREGAN DE LAS LÍNEAS 55 A LA 61 (próximas 5 líneas) EN EL COMMIT DE MOSTRANDO IMÁGENES
