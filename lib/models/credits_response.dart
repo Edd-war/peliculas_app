@@ -67,7 +67,7 @@ class Cast {
 
   get fullProfilePath {
     if(this.profilePath != null)
-      return 'https://image.tmbd.org/t/p/w500${this.profilePath}';
+      return 'https://image.tmdb.org/t/p/w500${this.profilePath}';
     return 'https://i.stack.imgur.com/GNhx0.png';
   }
 
