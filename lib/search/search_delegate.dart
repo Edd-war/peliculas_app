@@ -11,7 +11,10 @@ class MovieSearchDelegate extends SearchDelegate{
   @override
   List<Widget>? buildActions(BuildContext context) {
     return [
-      Text('buildActions'),
+      IconButton(
+        onPressed: () => query='',
+        icon: Icon(Icons.clear)
+      )
     ];
     // TODO: implement buildActions
     // throw UnimplementedError();
@@ -19,7 +22,12 @@ class MovieSearchDelegate extends SearchDelegate{
 
   @override
   Widget? buildLeading(BuildContext context) {
-    return Text('buildLeading');
+    return IconButton(
+      onPressed: (){
+        close(context, null);
+      },
+      icon: Icon(Icons.arrow_back)
+    );
     // // TODO: implement buildLeading
     // throw UnimplementedError();
   }
@@ -33,7 +41,15 @@ class MovieSearchDelegate extends SearchDelegate{
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    return Text('buildSuggestions: $query');
+    if(query.isEmpty){
+      return Container(
+        child: Center(
+          child: Icon(Icons.movie_creation_outlined, color: Colors.black38, size: 130,),
+        ),
+      );
+    }
+    return Container();
+    // return Text('buildSuggestions: $query');
     // TODO: implement buildSuggestions
     // throw UnimplementedError();
   }
